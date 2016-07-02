@@ -1,4 +1,4 @@
-contract Mortal {
+contract mortal {
 
 	address public owner;
 
@@ -6,8 +6,17 @@ contract Mortal {
 
 		owner = msg.sender;
 	}
+	
+	modifier onlyOwner {
 
-	function kill() {
+		if (msg.sender != owner) {
+			throw;
+		} else {
+			_
+		}
+	}
+
+	function kill() onlyOwner {
 
 		suicide(owner);
 
